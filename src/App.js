@@ -38,16 +38,12 @@ class App extends Component {
 					<Navigation cart={this.state.cart} />
 		
 					{/* Routes */}
-					
+
 					<AddItemContext.Provider value={this.addItem}>
 						<Route
 							exact
 							path="/"
-							render={() => (
-								<Products
-									products={this.state.products}
-								/>
-							)}
+							component={Products}
 						/>
 					</AddItemContext.Provider>
 

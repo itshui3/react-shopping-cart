@@ -19,3 +19,4 @@ const Navigation = props => {
 
 export default Navigation;
 // receives cart through props from App.js
+// done
