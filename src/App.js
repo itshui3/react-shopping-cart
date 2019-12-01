@@ -11,6 +11,9 @@ import ShoppingCart from './components/ShoppingCart';
 import { ShoppingContext } from './contexts/ShoppingContext';
 import { AddItemContext } from './contexts/AddItemContext';
 
+import { ProductContext } from './contexts/ProductContext';
+import { CartContext } from './contexts/CartContext';
+
 class App extends Component {
 	constructor() {
 		super()
@@ -33,19 +36,19 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<ShoppingContext.Provider value={this.state}>
+				<CartContext.Provider value={this.state.cart}>
 
 					<Navigation />
 		
 					{/* Routes */}
 
-					<AddItemContext.Provider value={this.addItem}>
+					<ProductContext.Provider value={{products: this.state.products, addItem: this.addItem}}>
 						<Route
 							exact
 							path="/"
 							component={Products}
 						/>
-					</AddItemContext.Provider>
+					</ProductContext.Provider>
 
 
 					<Route
@@ -53,7 +56,7 @@ class App extends Component {
 						component={ShoppingCart}
 					/>
 
-				</ShoppingContext.Provider>
+				</CartContext.Provider>
 				
 
 			</div>
