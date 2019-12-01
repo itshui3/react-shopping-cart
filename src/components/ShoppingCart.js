@@ -25,3 +25,5 @@ const ShoppingCart = props => {
 };
 
 export default ShoppingCart;
+
+// Shopping Cart receives props containing a cart array
