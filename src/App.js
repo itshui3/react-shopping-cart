@@ -35,7 +35,7 @@ class App extends Component {
 			<div className="App">
 				<ShoppingContext.Provider value={this.state}>
 
-					<Navigation cart={this.state.cart} />
+					<Navigation />
 		
 					{/* Routes */}
 
@@ -50,7 +50,7 @@ class App extends Component {
 
 					<Route
 						path="/cart"
-						render={() => <ShoppingCart cart={this.state.cart} />}
+						component={ShoppingCart}
 					/>
 
 				</ShoppingContext.Provider>
