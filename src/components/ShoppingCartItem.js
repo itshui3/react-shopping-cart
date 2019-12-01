@@ -16,3 +16,5 @@ const Item = props => {
 };
 
 export default Item;
+
+// receives information about iterant shopping cart item from props

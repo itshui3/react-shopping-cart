@@ -27,3 +27,4 @@ const ShoppingCart = props => {
 export default ShoppingCart;
 
 // Shopping Cart receives props containing a cart array
+// Item component [ShoppingCartItem.js] given iterant data mapped from cart

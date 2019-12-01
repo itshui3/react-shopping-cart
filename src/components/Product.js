@@ -17,3 +17,9 @@ const Product = props => {
 };
 
 export default Product;
+// receives product data through props and displays it
+// receives addItem and sets it up as an onClick handler
+
+// one way I could make this work with contextAPI is :
+// iterate with a key that is used to access my ContextObject's array item
+// and get data needed by this Product component's current iteration

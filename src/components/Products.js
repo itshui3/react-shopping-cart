@@ -18,3 +18,5 @@ const Products = props => {
 };
 
 export default Products;
+// receives product array && addItem handler through props from App.js
+// passes individual product data down to Product.js to form iterants
