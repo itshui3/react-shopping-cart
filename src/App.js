@@ -9,6 +9,7 @@ import ShoppingCart from './components/ShoppingCart';
 
 // Context
 import { ShoppingContext } from './contexts/ShoppingContext';
+import { AddItemContext } from './contexts/AddItemContext';
 
 class App extends Component {
 	constructor() {
@@ -35,16 +36,18 @@ class App extends Component {
 				<Navigation cart={cart} />
 	
 				{/* Routes */}
-				<Route
-					exact
-					path="/"
-					render={() => (
-						<Products
-							products={products}
-							addItem={addItem}
-						/>
-					)}
-				/>
+				<AddItemContext.Provider value={this.addItem}>
+					<Route
+						exact
+						path="/"
+						render={() => (
+							<Products
+								products={products}
+							/>
+						)}
+					/>
+				</AddItemContext.Provider>
+
 	
 				<Route
 					path="/cart"
