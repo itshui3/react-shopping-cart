@@ -24,35 +24,42 @@ class App extends Component {
 
 	addItem = item => {
 		// add the given item to the cart
-		setCart([
-			...cart,
+		this.setState({ cart: [
+			...this.state.cart,
 			item
-		])
+		] })
 	};
 
 	render() {
 		return (
 			<div className="App">
-				<Navigation cart={cart} />
-	
-				{/* Routes */}
-				<AddItemContext.Provider value={this.addItem}>
-					<Route
-						exact
-						path="/"
-						render={() => (
-							<Products
-								products={products}
-							/>
-						)}
-					/>
-				</AddItemContext.Provider>
+				<ShoppingContext.Provider value={this.state}>
 
-	
-				<Route
-					path="/cart"
-					render={() => <ShoppingCart cart={cart} />}
-				/>
+					<Navigation cart={this.state.cart} />
+		
+					{/* Routes */}
+					
+					<AddItemContext.Provider value={this.addItem}>
+						<Route
+							exact
+							path="/"
+							render={() => (
+								<Products
+									products={this.state.products}
+								/>
+							)}
+						/>
+					</AddItemContext.Provider>
+
+
+					<Route
+						path="/cart"
+						render={() => <ShoppingCart cart={this.state.cart} />}
+					/>
+
+				</ShoppingContext.Provider>
+				
+
 			</div>
 		);
 
