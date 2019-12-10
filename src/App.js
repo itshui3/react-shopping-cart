@@ -8,9 +8,6 @@ import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 
 // Context
-import { ShoppingContext } from './contexts/ShoppingContext';
-import { AddItemContext } from './contexts/AddItemContext';
-
 import { ProductContext } from './contexts/ProductContext';
 import { CartContext } from './contexts/CartContext';
 
@@ -33,10 +30,19 @@ class App extends Component {
 		] })
 	};
 
+	removeItem = index => {
+		const newCart = this.state.cart.slice(0, index).concat(this.state.cart.slice(index + 1))
+		console.log(index, 'index #')
+		console.log(newCart)
+		this.setState({ cart: [
+			...newCart
+		]})
+	}
+
 	render() {
 		return (
 			<div className="App">
-				<CartContext.Provider value={this.state.cart}>
+				<CartContext.Provider value={{ cart:this.state.cart, removeItem: this.removeItem }}>
 
 					<Navigation />
 		
